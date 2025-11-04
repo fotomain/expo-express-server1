@@ -30,6 +30,8 @@ router.get('/users', (req, res) => {
         return res.sendStatus(200);
     }
 
+    res.setHeader('Content-Type', 'application/json');
+    
     res.json({
     users: [
       {
