@@ -54,10 +54,10 @@ router.get('/', (req, res) => {
 app.use(basePath, router)
 
 // Apply express middlewares
-router.use(cors({ origin: '*' }))
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({ extended: true }))
 router.use(awsServerlessExpressMiddleware.eventContext())
+router.use(cors({ origin: '*' }))
 
 // Initialize awsServerlessExpress
 const server = awsServerlessExpress.createServer(app, null, binaryMimeTypes)
