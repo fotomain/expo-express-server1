@@ -23,14 +23,12 @@ app.use(morgan(customLogger))
 
 router.get('/users', (req, res) => {
 
-    if (req.httpMethod === 'OPTIONS') {
-        return {
-            statusCode: 200,
-            headers,
-            body: ''
-        };
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Origin');
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(200);
     }
-
 
     res.json({
     users: [
