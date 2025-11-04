@@ -22,7 +22,17 @@ router.use(compression())
 app.use(morgan(customLogger))
 
 router.get('/users', (req, res) => {
-  res.json({
+
+    if (req.httpMethod === 'OPTIONS') {
+        return {
+            statusCode: 200,
+            headers,
+            body: ''
+        };
+    }
+
+
+    res.json({
     users: [
       {
         name: 'steve',
