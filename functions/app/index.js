@@ -90,7 +90,7 @@ export default function expressApp(functionName) {
   app.use(routerBasePath, router)
 
   // Apply express middlewares
-  router.use(cors())
+  router.use(cors({ origin: '*' }))
   router.use(bodyParser.json())
   router.use(bodyParser.urlencoded({ extended: true }))
 
