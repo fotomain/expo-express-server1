@@ -54,7 +54,7 @@ router.get('/', (req, res) => {
 app.use(basePath, router)
 
 // Apply express middlewares
-router.use(cors())
+router.use(cors({ origin: '*' }))
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({ extended: true }))
 router.use(awsServerlessExpressMiddleware.eventContext())
