@@ -5,3 +5,8 @@
   publish = "build"
   # functions build directory
   functions = "functions-build"
+  
+[[headers]]
+  for = "/*" # you can configure the correct paths here
+  [headers.values]
+    access-control-allow-origin = "*" 
