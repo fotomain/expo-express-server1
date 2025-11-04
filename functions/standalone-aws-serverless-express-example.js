@@ -8,6 +8,8 @@ import awsServerlessExpressMiddleware from 'aws-serverless-express/middleware'
 import customLogger from './utils/logger'
 import binaryMimeTypes from './utils/binaryMimeTypes'
 
+//█████ DOC https://github.com/fotomain/react-cool-code/blob/816f6793f4f1f4b609c622b2bcf74e8409733840/src/DTC/dtc_v1/index_CENTER_V1.js#L202
+
 const app = express()
 const router = express.Router()
 
@@ -27,7 +29,7 @@ router.get('/users', (req, res) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Origin');
     if (req.method === 'OPTIONS') {
-        return res.sendStatus(200);
+        return res.sendStatus({statusCode: 200,});
     }
 
     res.setHeader('Content-Type', 'application/json');
