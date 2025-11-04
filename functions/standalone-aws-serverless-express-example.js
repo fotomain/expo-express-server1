@@ -15,6 +15,8 @@ const router = express.Router()
 const functionName = 'standalone-aws-serverless-express-example'
 const basePath = `/.netlify/functions/${functionName}/`
 
+router.use(cors({ origin: '*' }))
+
 router.use(compression())
 
 app.use(morgan(customLogger))
@@ -57,7 +59,7 @@ app.use(basePath, router)
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({ extended: true }))
 router.use(awsServerlessExpressMiddleware.eventContext())
-router.use(cors({ origin: '*' }))
+
 
 // Initialize awsServerlessExpress
 const server = awsServerlessExpress.createServer(app, null, binaryMimeTypes)
